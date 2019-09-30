@@ -1,0 +1,73 @@
+show tables
+show databases
+use gstdata
+use gstData
+show tables
+create table user(gst_no varchar(15) not null, name varchar(20) not null, email varchar(30), password varchar(18) not null, primary key(gst_no))
+alter table user add column phone_no numeric(10)
+desc user
+create table product(P_id int auto_increment, P_name varchar(20) not null, P_category varchar(20), gst_slab decimal(5,2), price decimal(9,2));
+create table product(P_id int auto_increment, P_name varchar(20) not null, P_category varchar(20), gst_slab decimal(5,2), price decimal(9,2), primary key(P_id))
+show tables
+desc product
+alter table product drop column price
+desc product
+desc user
+create table invoice(invoice_no int auto_increment, P_id int, invoice_date date, invoice_value decimal(7,2), Inter_or_intra bool);
+create table invoice(invoice_no int auto_increment, P_id int, invoice_date date, invoice_value decimal(7,2), Inter_or_intra boolean, primary key(invoice_no), foreign key P_id(P_id) references product(P_id))
+desc invoice
+create table GST_1(GST_1_id int auto_increment, invoice_no int, GST_no_user varchar(15) not null, taxable_value decimal(7,2), tax_liability decimal(7,2), CGST decimal(7,2), SGST decimal(7,2), IGST decimal(7,2), primary key(GST_1_id), foreign key invoice_no(invoice_no) references invoice(invoice_no))
+desc GST_1
+desc user
+desc GST_1
+show databases
+use gstdata
+use gstData
+show tables
+alter table GST_1 add foreign key GST_no_user(GST_no_user) references user(gst_no)
+desc GST_1
+create table GST_2(GST_2_id int auto_increment, invoice_no int, GST_no_user varchar(15) not null, GST_no_seller varchar(15) not null, CGST decimal(10,2), SGST decimal(10,2), ITC decimal(10,2), primary key(GST_2_id), foreign key invoice_no(invoice_no) references invoice(invoice_no), foreign key GST_no_user(GST_no_user) references user(gst_no))
+show tables
+use gstData
+use gstdata
+show tables
+Collapse Edit Query failed
+create table GST_2(GST_2_id int auto_increment, invoice_no int, GST_no_user varchar(15) not null, GST_no_seller varchar(15) not null, CGST decimal(10,2), SGST decimal(10,2), ITC decimal(10,2), primary key(GST_2_id), foreign key invoice_no(invoice_no) references invoice(invoice_no), foreign key GST_no_user(GST_no_user) references user(gst_no))
+create table GST_2(GST_2_id int auto_increment, invoice_no int, GST_no_user varchar(15) not null, GST_no_seller varchar(15) not null, CGST decimal(10,2), SGST decimal(10,2), ITC decimal(10,2), primary key(GST_2_id), foreign key invoice_no(invoice_no) references invoice(invoice_no), foreign key GST_no_user(GST_no_user) references user(gst_no))
+create table GST_2(GST_2_id int auto_increment, invoice_no int, GST_no_user varchar(15) not null, GST_no_seller varchar(15) not null, CGST decimal(10,2), SGST decimal(10,2), ITC decimal(10,2), primary key(GST_2_id), foreign key invoice_no(invoice_no) references invoice(invoice_no), foreign key GST_no_user(GST_no_user) references user(gst_no)) ;
+show tables
+desc invoice
+desc GST_1
+create table GST_2(GST_2_id int auto_increment, invoice_no int, GST_no_user varchar(15) not null, GST_no_seller varchar(15) not null, CGST decimal(10,2), SGST decimal(10,2), ITC decimal(10,2), primary key(GST_2_id), foreign key invoice_no(invoice_no) references invoice(invoice_no))
+create table GST_2(GST_2_id int auto_increment, invoice_no int, GST_no_user varchar(15) not null, GST_no_seller varchar(15) not null, CGST decimal(10,2), SGST decimal(10,2), ITC decimal(10,2), primary key(GST_2_id))
+create table GST_2(GST_2_id int auto_increment, invoice_no int, GST_no_user varchar(15) not null, GST_no_seller varchar(15) not null, CGST decimal(7,2), SGST decimal(7,2), ITC decimal(7,2), primary key(GST_2_id))
+use gstData
+use gstdata
+show tables
+create table GST_2(GST_2_id int auto_increment, invoice_no int, GST_no_user varchar(15) not null, GST_no_seller varchar(15) not null, CGST decimal(10,2), SGST decimal(10,2), ITC decimal(10,2), primary key(GST_2_id))
+show tables
+drop table gst_2
+show tables
+create table GST_2(GST_2_id int auto_increment, invoice_no int, GST_no_user varchar(15) not null, GST_no_seller varchar(15) not null, CGST decimal(10,2), SGST decimal(10,2), ITC decimal(10,2), primary key(GST_2_id), foreign key invoice_no references invoice(invoice_no), foreign key GST_no_seller references user(gst_no))
+create table GST_2(GST_2_id int auto_increment, invoice_no int, GST_no_user varchar(15) not null, GST_no_seller varchar(15) not null, CGST decimal(10,2), SGST decimal(10,2), ITC decimal(10,2), primary key(GST_2_id), foreign key invoice_no(invoice_no) references invoice(invoice_no), foreign key GST_no_seller(GST_no_seller) references user(gst_no))
+create table GST_2(GST_2_id int auto_increment, invoice_no int, GST_no_user varchar(15) not null, GST_no_seller varchar(15) not null, CGST decimal(10,2), SGST decimal(10,2), ITC decimal(10,2), primary key(GST_2_id), foreign key invoice_no_2(invoice_no) references invoice(invoice_no), foreign key GST_no_seller_2(GST_no_seller) references user(gst_no))
+drop table gst_1
+show tables
+create table GST_1(GST_1_id int auto_increment, invoice_no int, GST_no_user varchar(15) not null, taxable_value decimal(7,2), tax_liability decimal(7,2), CGST decimal(7,2), SGST decimal(7,2), IGST decimal(7,2), primary key(GST_1_id), foreign key invoice_no_1(invoice_no) references invoice(invoice_no), foreign key GST_no_user_2(GST_no_user) references user(gst_no))
+desc gst_1
+drop table gst_2
+create table GST_2(GST_2_id int auto_increment, invoice_no int, GST_no_user varchar(15) not null, GST_no_seller varchar(15) not null, CGST decimal(10,2), SGST decimal(10,2), ITC decimal(10,2), primary key(GST_2_id), foreign key invoice_no_2(invoice_no) references invoice(invoice_no), foreign key GST_no_user_2(GST_no_user) references user(gst_no))
+desc gst_1
+desc gst_2
+show tables
+use gstdata
+use gstData
+show tables
+desc gst_1
+drop table gst_1
+create table GST_1(GST_1_id int auto_increment, invoice_no int, GST_no_user varchar(15) not null, taxable_value decimal(7,2), tax_liability decimal(7,2), CGST decimal(7,2), SGST decimal(7,2), IGST decimal(7,2), primary key(GST_1_id), foreign key invoice_no_1(invoice_no) references invoice(invoice_no), foreign key GST1_no_user(GST_no_user) references user(gst_no))
+desc gst_1
+create table GST_2(GST_2_id int auto_increment, invoice_no int, GST_no_user varchar(15) not null, GST_no_seller varchar(15) not null, CGST decimal(10,2), SGST decimal(10,2), ITC decimal(10,2), primary key(GST_2_id), foreign key invoice_no_2(invoice_no) references invoice(invoice_no), foreign key GST2_no_user(GST_no_user) references user(gst_no))
+desc gst_2
+create table GST_3(GST_3_id int auto_increment, GST_1_id int, GST_2_id int, GSTR_3 decimal (11,2), primary key(GST_3_id), foreign key GST_1_id(GST_1_id) references GST_1(GST_1_id), foreign key GST_2_id(GST_2_id) references GST_2(GST_2_id))
+desc GST_3
